@@ -44,6 +44,7 @@ def _json_response(payload: Dict[str, Any], status: int = 200) -> Response:
         headers=_cors_headers(),
     )
 
+
 class QueryParams(BaseModel):
     provider: str = Field(default="elevenlabs")
     voice_id: str = Field(default="EXAVITQu4vr4xnSDxMaL")
