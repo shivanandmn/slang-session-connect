@@ -42,3 +42,10 @@ gcloud secrets list --project=openlabel-lab-firebase
 ### Enable APIs :
 gcloud services enable iamcredentials.googleapis.com iam.googleapis.com \
   cloudfunctions.googleapis.com run.googleapis.com secretmanager.googleapis.com
+
+
+
+
+If you want all gcloud commands to use a service account instead of your Gmail account:
+
+gcloud config set auth/impersonate_service_account gh-actions-ci@openlabel-lab-firebase.iam.gserviceaccount.com
