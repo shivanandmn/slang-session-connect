@@ -53,3 +53,10 @@ To check if you’re impersonating someone else:
 ```
 gcloud config get-value auth/impersonate_service_account
 ```
+
+get pool id
+```
+gcloud iam workload-identity-pools list \
+  --location="global" \
+  --project="openlabel-lab-firebase"
+```
