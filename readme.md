@@ -47,3 +47,9 @@ gcloud services enable iamcredentials.googleapis.com iam.googleapis.com \
 If you want all gcloud commands to use a service account instead of your Gmail account:
 
 gcloud config set auth/impersonate_service_account gh-actions-ci@openlabel-lab-firebase.iam.gserviceaccount.com
+
+
+To check if you’re impersonating someone else:
+```
+gcloud config get-value auth/impersonate_service_account
+```

@@ -37,7 +37,7 @@ jobs:
       id-token: write
       contents: read
     env:
-      FUNCTION_NAME: voice-cf
+      FUNCTION_NAME: slang-session-connect
       GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
       GCP_REGION: ${{ secrets.GCP_REGION }}
       LIVEKIT_URL: ${{ secrets.LIVEKIT_URL }}
