@@ -61,6 +61,14 @@ jobs:
             echo "LIVEKIT_URL GitHub secret is required but not set." >&2
             exit 1
           fi
+      - name: Validate Secrete Manager Access
+        run: |
+          for s in LIVEKIT_API_KEY LIVEKIT_API_SECRET; do
+            gcloud secrets add-iam-policy-binding "$s" \
+                --project "$GCP_PROJECT_ID" \
+                --member="serviceAccount:${GCP_SERVICE_ACCOUNT}" \
+                --role="roles/secretmanager.secretAccessor"
+            done
 
       - name: Deploy Cloud Function (Gen2)
         run: |
@@ -76,7 +84,7 @@ jobs:
             --memory 512Mi \
             --timeout 30s \
             --max-instances 5 \
-            --service-account "${GCP_SERVICE_ACCOUNT}" \
-            --build-service-account "${GCP_SERVICE_ACCOUNT}" \
+            --service-account "$GCP_SERVICE_ACCOUNT" \
+            --build-service-account "$GCP_SERVICE_ACCOUNT" \
             --set-env-vars LIVEKIT_URL="${LIVEKIT_URL}" \
             --set-secrets LIVEKIT_API_KEY=LIVEKIT_API_KEY:latest,LIVEKIT_API_SECRET=LIVEKIT_API_SECRET:latest
