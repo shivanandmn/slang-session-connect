@@ -65,7 +65,7 @@ jobs:
 
       - name: Check vars
         run: |
-          echo GCP_SERVICE_ACCOUNT
+          echo $GCP_SERVICE_ACCOUNT
 
       - name: Deploy Cloud Function (Gen2)
         run: |
