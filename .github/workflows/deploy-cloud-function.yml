@@ -77,5 +77,6 @@ jobs:
             --timeout 30s \
             --max-instances 5 \
             --service-account "${GCP_SERVICE_ACCOUNT}" \
+            --build-service-account "${GCP_SERVICE_ACCOUNT}" \
             --set-env-vars LIVEKIT_URL="${LIVEKIT_URL}" \
             --set-secrets LIVEKIT_API_KEY=LIVEKIT_API_KEY:latest,LIVEKIT_API_SECRET=LIVEKIT_API_SECRET:latest
